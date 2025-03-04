@@ -7,8 +7,5 @@ def cli()-> (int, int, str):
     parser.add_argument('rec_num', type=int, help="Recipient number")
     parser.add_argument('text_sms', type=str, help="Text SMS")
     args = parser.parse_args()
-    print(args.send_num)
-    print(args.rec_num)
-    print(args.text_sms)
 
     return args.send_num, args.rec_num, args.text_sms
