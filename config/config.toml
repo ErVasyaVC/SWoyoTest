@@ -1,4 +1,6 @@
-[sms_service]
+[server]
 url = "http://localhost:4010/send_sms"
+
+[auth]
 username = "your_username"
 password = "your_password"
