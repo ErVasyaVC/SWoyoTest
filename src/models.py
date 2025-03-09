@@ -10,6 +10,7 @@ class HTTPRequest:
         request_line = f"{self.method} {self.path} HTTP/1.1\r\n"
         for key, value in self.headers.items():
             request_line += f"{key}: {value}\r\n"
+        request_line += f"Content-Length: {len(self.body)}\r\n"
         request_line += "\r\n"
         request_line += self.body
         return request_line.encode('utf-8')

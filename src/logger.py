@@ -1,12 +1,10 @@
-from src.cli import cli
+import logging
 
+# Настройка логирования
+logging.basicConfig(
+    filename="../log/app.log",  # Лог-файл
+    level=logging.INFO,  # Уровень логирования (INFO, DEBUG, ERROR и т. д.)
+    format="%(asctime)s - %(levelname)s - %(message)s",  # Формат сообщения
+)
 
-def main():
-    send_num, rec_num, text_sms = cli()
-    print(send_num, rec_num, text_sms)
-
-
-
-
-if __name__ == '__main__':
-    main()
+logger = logging.getLogger(__name__)
