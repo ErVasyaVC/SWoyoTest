@@ -1,10 +1,10 @@
 import logging
 
-# Настройка логирования
+
 logging.basicConfig(
-    filename="../log/app.log",  # Лог-файл
-    level=logging.INFO,  # Уровень логирования (INFO, DEBUG, ERROR и т. д.)
-    format="%(asctime)s - %(levelname)s - %(message)s",  # Формат сообщения
+    filename="../log/app.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
 )
 
 logger = logging.getLogger(__name__)
