@@ -5,3 +5,7 @@ port = 4010
 [auth]
 username = "your_username"
 password = "your_password"
+
+[logging]
+level = "DEBUG"
+path = "../log/app.log"
