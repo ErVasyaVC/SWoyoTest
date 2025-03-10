@@ -1,5 +1,16 @@
 class HTTPRequest:
+    """
+    Представляет HTTP-запрос.
+    """
     def __init__(self, method: str, path: str, headers: dict, body: str):
+        """
+        Инициализирует объект HTTP-запроса
+
+        :param method: Метод HTTP запроса
+        :param path: Путь запроса
+        :param headers: Заголовки запроса
+        :param body: Тело запроса
+        """
         self.method = method
         self.path = path
         self.headers = headers
@@ -43,7 +54,18 @@ class HTTPRequest:
 
 
 class HTTPResponse:
+    """
+    Представляет HTTP-ответ.
+    """
     def __init__(self, status_code: int, status_message: str, headers: dict, body: str):
+        """
+        Инициализирует объект HTTP-ответа.
+
+        :param status_code: Код состояния HTTP
+        :param status_message: Сообщение состояния HTTP
+        :param headers: Заголовки ответа
+        :param body: Тело ответа
+        """
         self.status_code = status_code
         self.status_message = status_message
         self.headers = headers
