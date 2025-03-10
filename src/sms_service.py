@@ -1,10 +1,9 @@
 import json
-from cli import cli
-from models import HTTPRequest
-from http_client import send_request
-from config_loader import load_config
+from src.cli import cli
+from src.models import HTTPRequest
+from src.http_client import send_request
 import base64
-from logger import logger
+from src.logger import logger, config
 
 def main():
     """
@@ -12,7 +11,6 @@ def main():
     командной строки, формирует HTTP-запрос и отправляет его на сервер.
     """
     sender, receiver, message = cli()
-    config = load_config("../config/config.toml")
 
     logger.info(f"Starting SMS sending: {sender} -> {receiver}, message: {message}")
 

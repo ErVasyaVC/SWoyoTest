@@ -1,6 +1,6 @@
 import socket
-from models import HTTPResponse, HTTPRequest
-from logger import logger
+from src.models import HTTPResponse, HTTPRequest
+from src.logger import logger
 
 
 def send_request(request: HTTPRequest, host: str, port: int) -> HTTPResponse:

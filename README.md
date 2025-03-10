@@ -15,9 +15,11 @@ $ pip install -r requirements.txt
 Номер получателя (--receiver или -r).
 Текст сообщения (--message или -m).
 
+Запуск производить из папки src
+
 ### Пример команды:
 
-$ python sms_service.py -s 87777777777 -r 89999999999 -m "Your messag"
+$ python -m src.sms_service -s 87777777777 -r 89999999999 -m "Your message"
 
 ## Логирование
 
