@@ -1,3 +1,4 @@
+import json
 from cli import cli
 from models import HTTPRequest
 from http_client import send_request
@@ -25,8 +26,10 @@ def main():
             "Content-Type": "application/json",
             "Authorization": f"Basic {encoded_credentials}"
                  },
-        body=f'{{"sender": "{sender}", "recipient": "{receiver}", "message": "{message}"}}'
-
+        body=json.dumps(
+            {"sender": sender, "recipient": receiver, "message": message},
+            ensure_ascii=False
+        )
     )
 
     try:

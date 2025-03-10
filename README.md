@@ -17,7 +17,7 @@ $ pip install -r requirements.txt
 
 ### Пример команды:
 
-$ python sms_service.py -s 87777777777 -r 89999999999 -m "Ваше сообщение"
+$ python sms_service.py -s 87777777777 -r 89999999999 -m "Your messag"
 
 ## Логирование
 
