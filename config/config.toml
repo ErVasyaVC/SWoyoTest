@@ -7,5 +7,5 @@ username = "your_username"
 password = "your_password"
 
 [logging]
-level = "DEBUG"
+level = "INFO"
 path = "../log/app.log"

@@ -1,6 +1,8 @@
 import logging
 from  config_loader import load_config
 
+"""Модуль логирования"""
+
 config = load_config("../config/config.toml")
 
 logging.basicConfig(

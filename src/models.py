@@ -7,6 +7,11 @@ class HTTPRequest:
 
 
     def to_bytes(self) -> bytes:
+        """
+        Преобразует HTTP-запрос в последовательность байтов
+
+        :return: Последовательность байтов
+        """
         request_line = f"{self.method} {self.path} HTTP/1.1\r\n"
         for key, value in self.headers.items():
             request_line += f"{key}: {value}\r\n"
@@ -18,6 +23,12 @@ class HTTPRequest:
 
     @classmethod
     def from_bytes(cls, binary_data: bytes) -> "HTTPRequest":
+        """
+        Преобразует последовательность байтов в объект HTTP-запроса.
+
+        :param binary_data: Последовательность байтов
+        :return: объект HTTP-запроса
+        """
         data = binary_data.decode('utf-8')
         header_section, body = data.split("\r\n\r\n")
         lines = header_section.split("\r\n")
@@ -26,7 +37,8 @@ class HTTPRequest:
         for line in lines[1:]:
             if ": " in line:
                 key, value = line.split(": ", 1)
-                headers[key] = value
+                if key != "Content-Length":
+                    headers[key] = value
         return cls(method, path,  headers, body)
 
 
@@ -39,6 +51,11 @@ class HTTPResponse:
 
 
     def to_bytes(self) -> bytes:
+        """
+        Преобразует HTTP-ответ в последовательность байтов
+
+        :return: Последовательность байтов
+        """
         request_line = f"HTTP/1.1 {self.status_code} {self.status_message}\r\n"
         for key, value in self.headers.items():
             request_line += f"{key}: {value}\r\n"
@@ -49,6 +66,12 @@ class HTTPResponse:
 
     @classmethod
     def from_bytes(cls, binary_data: bytes) -> "HTTPResponse":
+        """
+        Преобразует последовательность байтов в объект HTTP-ответа.
+
+        :param binary_data: Последовательность байтов
+        :return: объект HTTP-ответа
+        """
         data = binary_data.decode('utf-8')
         header_section, body = data.split("\r\n\r\n")
         lines = header_section.split("\r\n")

@@ -4,6 +4,15 @@ from logger import logger
 
 
 def send_request(request: HTTPRequest, host: str, port: int) -> HTTPResponse:
+    """
+    Отправляет HTTP запрос на сервер и получает HTTP ответ
+
+    :param request: HTTP запрос
+    :param host: ip сервера
+    :param port: порт сервера
+    :return: HTTP ответ
+    """
+
     try:
         with socket.create_connection((host, port)) as sock:
             sock.sendall(request.to_bytes())

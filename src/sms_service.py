@@ -6,6 +6,10 @@ import base64
 from logger import logger
 
 def main():
+    """
+    Основная функция программы. Загружает конфигурацию, обрабатывает аргументы
+    командной строки, формирует HTTP-запрос и отправляет его на сервер.
+    """
     sender, receiver, message = cli()
     config = load_config("../config/config.toml")
 
